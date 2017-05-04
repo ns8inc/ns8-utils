@@ -32,7 +32,6 @@
     },
     "license": "MIT",
     "scripts": {
-        "tsc": "tsc",
-        "postinstall": "npm run tsc"
+        "build": "tsc"
     }
 }
