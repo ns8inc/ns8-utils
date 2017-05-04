@@ -1,2 +1,2 @@
-# ns8-utils
-Node utility functions to support web applications
+# node-utils
+Utility functions to support Node.js development
