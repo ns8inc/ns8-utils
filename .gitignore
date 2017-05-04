@@ -21,6 +21,7 @@ obj/
 bin/
 *.suo
 *.js.map
+*.js
 
 *.user
 *.sln.docstates
