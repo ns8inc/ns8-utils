@@ -1,15 +1,15 @@
 {
     "name": "ns8-utils",
     "description": "Utility functions",
-    "version": "2.0.0",
+    "version": "1.0.0",
     "author": {
-        "name": "GatorIO"
+        "name": "NS8"
     },
     "main": "lib/index.js",
     "contributors": [
         {
             "name": "Phil Vizzaccaro",
-            "email": "phil@gator.io"
+            "email": "phil@ns8.com"
         }
     ],
     "types": "./node-utils.d.ts",
@@ -18,7 +18,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/GatorIO/node-utils.git"
+        "url": "https://github.com/ns8inc/ns8-utils.git"
     },
     "dependencies": {
         "@types/node": "^6.0.68",
