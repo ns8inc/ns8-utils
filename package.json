@@ -12,7 +12,7 @@
             "email": "phil@ns8.com"
         }
     ],
-    "types": "./node-utils.d.ts",
+    "types": "./ns8-utils.d.ts",
     "engines": {
         "node": ">=4.2.0"
     },
