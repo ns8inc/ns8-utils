@@ -32,6 +32,6 @@
     },
     "license": "MIT",
     "scripts": {
-        "postinstall" : "tsc"
+        "postinstall" : "tsc -v"
     }
 }
