@@ -3,8 +3,7 @@
         "module": "commonjs",
         "sourceMap": true,
         "target": "ES6",
-        "removeComments": true,
-        "typeRoots" : ["./typings", "./node_modules/@types"]
+        "removeComments": true
     },
     "exclude": [
         "node_modules"
