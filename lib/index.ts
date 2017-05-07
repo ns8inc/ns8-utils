@@ -5,6 +5,7 @@ export let epoch = require('./epoch');
 export let config = require('./config');
 import crypto = require('crypto');
 import cloneLib = require('clone');
+import http = require('http');
 
 /*
  Common utility functions
@@ -621,4 +622,32 @@ export function renameAttribute(obj: Object, name: string, replacement: string):
     }
 
     return obj;
+}
+
+/**
+ * Get the contents of a URL.
+ * @param url
+ * @param callback
+ */
+export function getUrlText(url, callback) {
+
+    http.get(url, function(res) {
+
+        // explicitly treat incoming data as utf8 (avoids issues with multi-byte chars)
+        res.setEncoding('utf8');
+
+        // incrementally capture the incoming response body
+        let body = '';
+
+        res.on('data', function(d) {
+            body += d;
+        });
+
+        // do whatever we want with the response once it's done
+        res.on('end', function() {
+            callback(null, body);
+        });
+    }).on('error', function(err) {
+        callback(err);
+    });
 }
