@@ -92,6 +92,10 @@ export function getTimezoneId(timezone: any): number {
                 //  some systems use moment names, but with a dash instead of a /
                 if (tz.momentName && tz.momentName.replace('/', '-').toUpperCase() == timezone.toUpperCase())
                     return +key;
+
+                //  some systems use moment names, but with an underscore instead of a /
+                if (tz.momentName && tz.momentName.replace('/', '_').toUpperCase() == timezone.toUpperCase())
+                    return +key;
             }
         }
 
