@@ -67,7 +67,8 @@ export enum DateIntervals {
 }
 
 /**
- * Return an id from a timezone code, moment timezone name or id.  Return -1 if not found.
+ * Return an id from a timezone code, moment timezone name or id.  Return -1 if not found.  This routine attempts
+ * to map a timezone from various formats from different systems.
  * @param timezone
  * @returns {number}
  */
@@ -86,6 +87,10 @@ export function getTimezoneId(timezone: any): number {
                     return +key;
 
                 if (tz.momentName && tz.momentName.toUpperCase() == timezone.toUpperCase())
+                    return +key;
+
+                //  some systems use moment names, but with a dash instead of a /
+                if (tz.momentName && tz.momentName.replace('/', '-').toUpperCase() == timezone.toUpperCase())
                     return +key;
             }
         }
