@@ -6,6 +6,7 @@ export let config = require('./config');
 import crypto = require('crypto');
 import cloneLib = require('clone');
 import http = require('http');
+import https = require('https');
 
 /*
  Common utility functions
@@ -630,8 +631,12 @@ export function renameAttribute(obj: Object, name: string, replacement: string):
  * @param callback
  */
 export function getUrlText(url, callback) {
+    let lib: any = http;
 
-    http.get(url, function(res) {
+    if (url.indexOf('https:') == 0)
+        lib = https;
+
+    lib.get(url, function(res) {
 
         // explicitly treat incoming data as utf8 (avoids issues with multi-byte chars)
         res.setEncoding('utf8');
