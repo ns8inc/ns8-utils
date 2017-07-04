@@ -28,6 +28,7 @@
         "moment": "^2.18.1",
         "@types/moment-timezone": "^0.2.34",
         "moment-timezone": "^0.5.13",
+        "dotenv":"^4.0.0",
         "typescript": "^2.3.2"
     },
     "license": "MIT",

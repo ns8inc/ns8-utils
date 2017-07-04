@@ -1,3 +1,5 @@
+require('dotenv').load();
+
 /*
     Runtime configuration routines.
  */
