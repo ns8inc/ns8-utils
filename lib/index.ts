@@ -656,3 +656,23 @@ export function getUrlText(url, callback) {
         callback(err);
     });
 }
+
+/**
+ * Append a query string parameter onto an URL considering whether it should be prefixed with & or ?.  The
+ * value will be encoded.
+ * @param {string} url
+ * @param {string} name
+ * @param {string} value
+ * @returns {string}
+ */
+export function appendQueryString(url: string, name: string, value: string): string {
+    let result = url;
+
+    if (result.indexOf('?') > 0) {
+        result += '&';
+    } else {
+        result += '?';
+    }
+
+    return result += name + '=' + encodeURIComponent(value);
+}
