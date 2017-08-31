@@ -67,7 +67,7 @@ export enum DateIntervals {
 }
 
 /**
- * Return an id from a timezone code, moment timezone name or id.  Return -1 if not found.  This routine attempts
+ * Return an id from a timezone code, moment timezone name or id.  Return null if not found.  This routine attempts
  * to map a timezone from various formats from different systems.
  * @param timezone
  * @returns {number}
@@ -76,42 +76,71 @@ export function getTimezoneId(timezone: any): number {
 
     if (typeof timezone == 'string') {     // like PST or GMT
 
-        timezone = timezone.toUpperCase();
+        let zone = timezone;
 
+        //  see if this is a moment name and get the abbreviation
+        let zoneAbbr = moment.tz([2017, 0], zone).zoneAbbr();
+
+        //  moment returns UTC if it can't find the name
+
+        //  some systems use moment names, but with a dash instead of a /
+        if (zoneAbbr == 'UTC')
+            zoneAbbr = moment.tz([2017, 0], zone.replace('-', '/')).zoneAbbr();
+
+        //  some systems use moment names, but with an underscore instead of a /
+        if (zoneAbbr == 'UTC')
+            zoneAbbr = moment.tz([2017, 0], zone.replace('_', '/')).zoneAbbr();
+
+        if (zoneAbbr != 'UTC')
+            zone = zoneAbbr;
+
+        zone = zone.toUpperCase();
+
+        //  daylight savings time zones to standard
+        switch (zone) {
+            case 'EDT':
+                return 8;
+            case 'PDT':
+                return 4;
+            case 'CDT':
+                return 7;
+            case 'MDT':
+                return 6;
+            case 'IDT':
+                return 33;
+            case 'CET':
+                return 16;
+            case 'AWST':
+                return 30;
+            case 'SST':
+                return 1;
+            case 'AKST':
+                return 3;
+        }
+
+        //  try to find a matching zone
         for (let key in timezones) {
 
             if (timezones.hasOwnProperty(key)) {
                 let tz = timezones[key];
 
-                if (tz.code.toUpperCase() == timezone.toUpperCase())
-                    return +key;
-
-                if (tz.momentName && tz.momentName.toUpperCase() == timezone.toUpperCase())
-                    return +key;
-
-                //  some systems use moment names, but with a dash instead of a /
-                if (tz.momentName && tz.momentName.replace('/', '-').toUpperCase() == timezone.toUpperCase())
-                    return +key;
-
-                //  some systems use moment names, but with an underscore instead of a /
-                if (tz.momentName && tz.momentName.replace('/', '_').toUpperCase() == timezone.toUpperCase())
+                if (tz.code.toUpperCase() == zone)
                     return +key;
             }
         }
 
         //  since nothing was found, try to guess common time zone
-        if (timezone.indexOf('EASTERN TIME') > -1)
+        if (zone.indexOf('EASTERN TIME') > -1)
             return 8;
-        if (timezone.indexOf('CENTRAL TIME') > -1)
+        if (zone.indexOf('CENTRAL TIME') > -1)
             return 7;
-        if (timezone.indexOf('MOUNTAIN TIME') > -1)
+        if (zone.indexOf('MOUNTAIN TIME') > -1)
             return 6;
-        if (timezone.indexOf('PACIFIC TIME') > -1)
+        if (zone.indexOf('PACIFIC TIME') > -1)
             return 4;
 
-        return -1;      // not found
-    }
-    else {
+        return null;      // not found
+    } else {
         return timezone;
     }
 }
