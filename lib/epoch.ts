@@ -135,7 +135,7 @@ export function getTimezoneId(timezone: any): number {
         if (zone.indexOf('PACIFIC TIME') > -1)
             return 4;
 
-        return null;      // not found
+        return 0;      // not found - return UTC
     } else {
         return timezone;
     }
