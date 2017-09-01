@@ -76,20 +76,16 @@ export function getTimezoneId(timezone: any): number {
 
     if (typeof timezone == 'string') {     // like PST or GMT
 
-        let zone = timezone;
+        let zone = timezone, zoneAbbr = 'UTC';
 
         //  see if this is a moment name and get the abbreviation
-        let zoneAbbr = moment.tz([2017, 0], zone).zoneAbbr();
-
-        //  moment returns UTC if it can't find the name
-
-        //  some systems use moment names, but with a dash instead of a /
-        if (zoneAbbr == 'UTC')
+        if (moment.tz.zone(zone)) {
+            zoneAbbr = moment.tz([2017, 0], zone).zoneAbbr();
+        } else if (moment.tz.zone(zone.replace('-', '/'))) {
             zoneAbbr = moment.tz([2017, 0], zone.replace('-', '/')).zoneAbbr();
-
-        //  some systems use moment names, but with an underscore instead of a /
-        if (zoneAbbr == 'UTC')
+        } else if (moment.tz.zone(zone.replace('_', '/'))) {
             zoneAbbr = moment.tz([2017, 0], zone.replace('_', '/')).zoneAbbr();
+        }
 
         if (zoneAbbr != 'UTC')
             zone = zoneAbbr;
