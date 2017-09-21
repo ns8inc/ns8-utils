@@ -22,7 +22,7 @@ export function env(): string {
  */
 export function dev(): boolean {
     let check: string = process.env['NODE_ENV'] || "";
-    return check.toLowerCase() == 'development' || check.toLowerCase() == 'local' || check.toLowerCase() == 'dev';
+    return check.toLowerCase().substr(0, 11) == 'development' || check.toLowerCase().substr(0, 5) == 'local' || check.toLowerCase() == 'dev';
 }
 
 /**
