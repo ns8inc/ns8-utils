@@ -78,6 +78,12 @@ export function getTimezoneId(timezone: any): number {
 
         let zone = timezone, zoneAbbr = 'UTC';
 
+        //  Sometimes the format passed in is a hybrid of GMT offset and moment.js name.  If so, strip out the
+        //  offset part of the timezone.  For example: (GMT+01:00) Europe/Paris
+        if (zone.substr(0, 4) == '(GMT') {
+            zone = zone.substr(zone.indexOf(' ') + 1);
+        }
+
         //  see if this is a moment name and get the abbreviation
         if (moment.tz.zone(zone)) {
             zoneAbbr = moment.tz([2017, 0], zone).zoneAbbr();
