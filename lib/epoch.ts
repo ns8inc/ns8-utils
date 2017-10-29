@@ -311,7 +311,7 @@ export function addWeeks(weeks: number, date?: Date) {
 
     if (!date) date = start();
 
-    return addDays(weeks * 7 - 4);
+    return addDays(weeks * 7 - 5);
 }
 
 /**
