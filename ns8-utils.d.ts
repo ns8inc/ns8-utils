@@ -94,6 +94,8 @@ declare module 'ns8-utils' {
 
         export function addMonths(months: number, date?: Date): Date;
 
+        export function addWeeks(weeks: number, date?: Date): Date;
+
         export function addYears(years: number, date?: Date): Date;
 
         export function addDays(days: number, date?: Date): Date;

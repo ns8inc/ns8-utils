@@ -302,6 +302,19 @@ export function addDays(days: number, date?: Date) {
 }
 
 /**
+ * Add a number of weeks to a date.
+ * @param {number} weeks
+ * @param {Date} date
+ * @returns {Date}
+ */
+export function addWeeks(weeks: number, date?: Date) {
+
+    if (!date) date = start();
+
+    return addDays(weeks * 7 - 4);
+}
+
+/**
  * Add a number of months to a date.  The base date defaults to the epoch start.
  * @param months
  * @param date
