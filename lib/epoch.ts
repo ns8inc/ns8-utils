@@ -174,7 +174,7 @@ export function utcOffset(timezoneId: number): number {
         return 0;
 
     //  moment timezone uses opposite direction for offset
-    return -moment.tz.zone(timezone.momentName).offset(new Date().getTime()) * 60;
+    return -moment.tz.zone(timezone.momentName).utcOffset().offset(new Date().getTime()) * 60;
 }
 
 /**
