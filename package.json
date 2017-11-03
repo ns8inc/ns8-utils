@@ -1,7 +1,7 @@
 {
     "name": "ns8-utils",
     "description": "Utility functions",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "author": {
         "name": "NS8"
     },
@@ -24,12 +24,12 @@
         "@types/node": "^6.0.68",
         "@types/clone": "^0.1.30",
         "clone": "^2.1.1",
-        "iconv-lite": "^0.4.15",
-        "moment": "^2.18.1",
-        "@types/moment-timezone": "^0.2.34",
-        "moment-timezone": "^0.5.13",
-        "dotenv":"^4.0.0",
-        "typescript": "2.4.2"
+        "iconv-lite": "^0.4.19",
+        "moment": "^2.19.1",
+        "@types/moment-timezone": "^0.5.1",
+        "moment-timezone": "^0.5.14",
+        "dotenv": "^4.0.0",
+        "typescript": "2.6.1"
     },
     "license": "MIT",
     "scripts": {

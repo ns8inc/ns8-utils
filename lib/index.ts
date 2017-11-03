@@ -58,7 +58,7 @@ export function JSONEscape(str: string): string {
  * @returns {Object}    The JSON object, or null if the string is not valid JSON.
  * @constructor
  */
-export function JSONSafeParse(str: string): Object {
+export function JSONSafeParse(str: string): any {
     try {
         return JSON.parse(str);
     } catch(err) {
