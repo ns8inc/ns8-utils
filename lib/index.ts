@@ -15,6 +15,43 @@ import https = require('https');
 let iconv = require("iconv-lite");
 
 /**
+ * Escape all characters not included in SingleStringCharacters
+ * http://www.ecma-international.org/ecma-262/5.1/#sec-7.8.4
+ *
+ * This is used to format strings with special characters into parsable JSON.
+ * @param {string} str
+ * @returns {string}
+ * @constructor
+ */
+export function JSONEscape(str: string): string {
+    return ('' + str).replace(/["\\\n\r\t\b\f\u2028\u2029]/g, function (character) {
+        // Escape all characters not included in SingleStringCharacters and
+        // Escape all characters not included in SingleStringCharacters and
+        // http://www.ecma-international.org/ecma-262/5.1/#sec-7.8.4
+        switch (character) {
+            case '"':
+            case '\\':
+                return '\\' + character;
+            // characters need to be escaped:
+            case '\n':
+                return '\\n';
+            case '\t':
+                return '\\t';
+            case '\b':
+                return '\\b';
+            case '\f':
+                return '\\f';
+            case '\r':
+                return '\\r';
+            case '\u2028':
+                return '\\u2028';
+            case '\u2029':
+                return '\\u2029'
+        }
+    })
+}
+
+/**
  * Create a string of random base64 characters.
  * @param numBytes         The length of the string to create.
  * @returns {string}

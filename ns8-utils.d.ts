@@ -1,5 +1,6 @@
 
 declare module 'ns8-utils' {
+    export function JSONEscape(str: string): string;
     export function superRandom(bytes?: number): string;
     export function isArray(obj: any): boolean;
     export function prefixAttributes(obj: Object, prefix: string): Object;
