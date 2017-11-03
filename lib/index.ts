@@ -52,6 +52,21 @@ export function JSONEscape(str: string): string {
 }
 
 /**
+ * Parse string into JSON, but trap errors if the JSON is not valid.  A common cause of parse
+ * failures are special characters in values.  Use JSONEscape to handle them.
+ * @param {string} str
+ * @returns {Object}    The JSON object, or null if the string is not valid JSON.
+ * @constructor
+ */
+export function JSONSafeParse(str: string): Object {
+    try {
+        return JSON.parse(str);
+    } catch(err) {
+        return null;
+    }
+}
+
+/**
  * Create a string of random base64 characters.
  * @param numBytes         The length of the string to create.
  * @returns {string}
