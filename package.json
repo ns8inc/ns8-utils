@@ -1,38 +1,1 @@
-{
-    "name": "ns8-utils",
-    "description": "Utility functions",
-    "version": "1.0.10",
-    "author": {
-        "name": "NS8"
-    },
-    "main": "lib/index.js",
-    "contributors": [
-        {
-            "name": "Phil Vizzaccaro",
-            "email": "phil@ns8.com"
-        }
-    ],
-    "types": "./ns8-utils.d.ts",
-    "engines": {
-        "node": ">=4.2.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ns8inc/ns8-utils.git"
-    },
-    "dependencies": {
-        "@types/node": "^8.5.5",
-        "@types/clone": "^0.1.30",
-        "clone": "^2.1.1",
-        "iconv-lite": "^0.4.19",
-        "moment": "^2.20.1",
-        "@types/moment-timezone": "^0.5.3",
-        "moment-timezone": "^0.5.14",
-        "dotenv": "^4.0.0",
-        "typescript": "2.6.2"
-    },
-    "license": "MIT",
-    "scripts": {
-        "install": "tsc"
-    }
-}
+{    "name": "ns8-utils",    "description": "Utility functions",    "version": "1.0.10",    "author": {        "name": "NS8"    },    "main": "lib/index.js",    "contributors": [        {            "name": "Phil Vizzaccaro",            "email": "phil@ns8.com"        }    ],    "types": "./ns8-utils.d.ts",    "engines": {        "node": ">=4.2.0"    },    "repository": {        "type": "git",        "url": "https://github.com/ns8inc/ns8-utils.git"    },    "dependencies": {        "@types/node": "^8.5.5",        "@types/clone": "^0.1.30",        "clone": "^2.1.1",        "iconv-lite": "^0.4.19",        "moment": "^2.20.1",        "@types/moment-timezone": "^0.5.3",        "moment-timezone": "^0.5.14",        "dotenv": "^4.0.0",        "typescript": "2.6.2"    },    "license": "MIT",    "scripts": {        "install": "tsc"    }}
