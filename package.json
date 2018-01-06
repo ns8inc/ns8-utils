@@ -1,7 +1,7 @@
 {
     "name": "ns8-utils",
     "description": "Utility functions",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "author": {
         "name": "NS8"
     },
@@ -18,7 +18,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/ns8inc/ns8-utils.git"
+        "url": "git://github.com/ns8inc/ns8-utils.git"
     },
     "dependencies": {
         "@types/node": "^8.5.7",
