@@ -1,7 +1,7 @@
 {
     "name": "ns8-utils",
     "description": "Utility functions",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "author": {
         "name": "NS8"
     },
@@ -21,7 +21,7 @@
         "url": "https://github.com/ns8inc/ns8-utils.git"
     },
     "dependencies": {
-        "@types/node": "^8.5.5",
+        "@types/node": "^8.5.7",
         "@types/clone": "^0.1.30",
         "clone": "^2.1.1",
         "iconv-lite": "^0.4.19",
