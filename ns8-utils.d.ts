@@ -56,6 +56,7 @@ declare module 'ns8-utils' {
         export function toNumber32(address: string): number;
         export function fromNumber(ipNumber: number): string;
         export function toNumberIPV6(address: string): number;
+        export function isPrivate(address): boolean;
     }
 
     export module epoch {

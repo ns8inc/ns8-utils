@@ -310,3 +310,22 @@ export function fromNumber(ipNumber: number): string {
 export function toNumberIPV6(address: string): number {
     return hashIPV6(address);
 }
+
+/**
+ * Return whether an I.P. address is in a private range.
+ * @param address
+ * @returns {boolean}
+ */
+export function isPrivate(address): boolean {
+    return /^(::f{4}:)?10\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/i
+            .test(address) ||
+        /^(::f{4}:)?192\.168\.([0-9]{1,3})\.([0-9]{1,3})$/i.test(address) ||
+        /^(::f{4}:)?172\.(1[6-9]|2\d|30|31)\.([0-9]{1,3})\.([0-9]{1,3})$/i
+            .test(address) ||
+        /^(::f{4}:)?127\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/i.test(address) ||
+        /^(::f{4}:)?169\.254\.([0-9]{1,3})\.([0-9]{1,3})$/i.test(address) ||
+        /^f[cd][0-9a-f]{2}:/i.test(address) ||
+        /^fe80:/i.test(address) ||
+        /^::1$/.test(address) ||
+        /^::$/.test(address);
+}
