@@ -10,6 +10,11 @@ import utils = require('./index');
  * @returns {boolean}
  */
 export function localHost(req): boolean {
+
+    //  the connection can be destroyed mid-processing, so test for existence
+    if (!req || !req.connection || !req.connection.remoteAddress) {
+        return false;
+    }
     return req.connection.remoteAddress.substring(0, 8) == "127.0.0." || req.connection.remoteAddress == "::1";
 }
 
@@ -87,7 +92,7 @@ export function remoteAddress(req): string {
         let xf: string = req.connection.remoteAddress;
 
         //  a tiny % of hits have an unknown ip address, so return a default address
-        if (xf.substring(0, 7) == "unknown") {
+        if (!xf || xf.substring(0, 7) == "unknown") {
             return "127.0.0.1";
         }
 
