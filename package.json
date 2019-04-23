@@ -14,22 +14,22 @@
     ],
     "types": "./ns8-utils.d.ts",
     "engines": {
-        "node": ">=4.2.0"
+        "node": ">=8.7.0"
     },
     "repository": {
         "type": "git",
         "url": "git://github.com/ns8inc/ns8-utils.git"
     },
     "dependencies": {
-        "@types/node": "^8.5.7",
+        "@types/node": "^10.14.5",
         "@types/clone": "^0.1.30",
-        "clone": "^2.1.1",
-        "iconv-lite": "^0.4.19",
-        "moment": "^2.20.1",
-        "@types/moment-timezone": "^0.5.3",
-        "moment-timezone": "^0.5.14",
-        "dotenv": "^4.0.0",
-        "typescript": "2.6.2"
+        "clone": "^2.1.2",
+        "iconv-lite": "^0.4.24",
+        "moment": "^2.24.0",
+        "@types/moment-timezone": "^0.5.12",
+        "moment-timezone": "^0.5.25",
+        "dotenv": "^7.0.0",
+        "typescript": "^3.4.4"
     },
     "license": "MIT",
     "scripts": {
