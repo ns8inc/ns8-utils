@@ -25,7 +25,7 @@
         "@types/clone": "^0.1.30",
         "clone": "^2.1.2",
         "iconv-lite": "^0.4.24",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "@types/moment-timezone": "^0.5.12",
         "moment-timezone": "^0.5.26",
         "dotenv": "^4.0.0",
